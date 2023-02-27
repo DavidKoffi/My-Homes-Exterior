@@ -27,6 +27,13 @@ const upload = multer({
   dest: "./temp",
 });
 
+app.get("/ping", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "connected",
+  });
+});
+
 app.post(
   "/",
   upload.array("image" /* name attribute of <file> element in your form */),
