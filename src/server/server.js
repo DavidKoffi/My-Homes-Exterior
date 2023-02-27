@@ -3,10 +3,21 @@ import http from "http";
 import path from "path";
 import fs from "fs";
 import multer from "multer";
+import cors from "cors";
 
 const app = express();
 const port = 3001;
 import { SendEmail } from "./emailService.js";
+
+const corsOptions = {
+  origin: "http://localhost:5173",
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
+app.use(cors(corsOptions));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
@@ -48,10 +59,10 @@ app.post(
     //   attachments.push({ path: value });
     // });
     let data = req.body;
-    //console.log(req.body);
+    console.log(req.body);
 
     SendEmail(
-      "davidnkoffi10@gmail.com",
+      "seanyousefi5@gmail.com",
       "New Job",
       `Client name: ${data.firstName} ${data.lastName} \n 
         Client address: ${data.address} \n
@@ -59,11 +70,12 @@ app.post(
         Client email: ${data.email} \n
         Expected completion date: ______ \n
         Job type: ${data.service} \n
-        additional info: ${data.additionalInfo}`,
-      attachments
+        additional info: ${data.additionalInfo}`
+      //attachments
     );
     if (res.statusCode == 200) {
       console.log("success");
+      res.status(200).json({ success: true });
     }
     // res.status(200).contentType("text/plain").end("File uploaded!");
   }

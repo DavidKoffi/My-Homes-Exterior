@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./ServiceForm.css";
 import { Store } from "react-notifications-component";
+import { JobSelectionContext } from "../../context/JobSelectionContext";
 
 function ServiceForm(props) {
+  const job = useContext(JobSelectionContext).currentJob;
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     phoneNumber: "",
     address: "",
-    service: "",
+    service: job,
     outReachType: "",
     additionalInfo: "",
   });
@@ -19,43 +21,63 @@ function ServiceForm(props) {
     setFormData({ ...formData, [name]: value });
   };
 
+  console.log(formData.service);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(formData);
-    await fetch("http://localhost:3001", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
-    Store.addNotification({
-      title: "Request Successfully Submited!",
-      message:
-        "You have successfully submited your request! We will respond within 48 hours",
-      type: "success",
-      insert: "top",
-      container: "top-right",
-      animationIn: ["animate__animated", "animate__fadeIn"],
-      animationOut: ["animate__animated animate__fadeOut"],
-      dismiss: {
-        duration: 5000,
-        onScreen: true,
-      },
-    });
+    try {
+      console.log(formData);
+      let response = await fetch("http://localhost:3001", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      console.log(response);
+      Store.addNotification({
+        title: "Request Successfully Submited!",
+        message:
+          "You have successfully submited your request! We will respond within 48 hours",
+        type: "success",
+        insert: "top",
+        container: "top-right",
+        animationIn: ["animate__animated", "animate__fadeIn"],
+        animationOut: ["animate__animated animate__fadeOut"],
+        dismiss: {
+          duration: 5000,
+          onScreen: true,
+        },
+      });
+    } catch (err) {
+      Store.addNotification({
+        title: "Something Went wrong!",
+        message: "Try agin!",
+        type: "danger",
+        insert: "top",
+        container: "top-right",
+        animationIn: ["animate__animated", "animate__fadeIn"],
+        animationOut: ["animate__animated animate__fadeOut"],
+        dismiss: {
+          duration: 5000,
+          onScreen: true,
+        },
+      });
+    }
   };
 
   return (
     <form
       className="form"
       id="form"
-      method="post"
-      encType="multipart/form-data"
-      action="http://localhost:3001"
+      // method="post"
+      // encType="multipart/form-data"
+      // action="http://localhost:3001"
+      onSubmit={handleSubmit}
     >
       <div className="form-group">
         <select
           name="service"
           id="service"
-          className="form-input"
+          className="form-i nput"
           value={formData.service}
           onChange={handleInputChange}
         >

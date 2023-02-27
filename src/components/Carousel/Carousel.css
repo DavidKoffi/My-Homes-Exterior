@@ -47,6 +47,8 @@
   cursor: pointer;
   z-index: 100000;
   position: static;
+  box-sizing: border-box;
+  border: 2px white solid;
 }
 
 .selection-item-icon {
@@ -93,7 +95,7 @@ circle:hover {
 
 .focused {
   transition: 0.2s;
-  border: black 2px solid;
+  border: 2px black solid;
 }
 
 .get-quote-btn {

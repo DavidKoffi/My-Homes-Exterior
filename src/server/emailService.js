@@ -13,7 +13,7 @@ export function SendEmail(_recipient, _subject, _message, _attachments) {
     to: "Theunstableviking@gmail.com",
     subject: _subject,
     text: _message,
-    attachments: _attachments,
+    //attachments: _attachments,
   };
 
   transporter.sendMail(options, (err, info) => {

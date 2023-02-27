@@ -23,6 +23,7 @@ function SelectServiceSection() {
             service={data.header}
             index={index}
             setIndex={payload.setIndex}
+            key={index}
           />
         ))}
       </div>

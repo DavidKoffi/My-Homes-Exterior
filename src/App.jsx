@@ -11,6 +11,15 @@ import Sod from "./assets/Sod.png";
 import Hardscape from "./assets/Hardscape.png";
 import Spring from "./assets/Spring.png";
 
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Link,
+} from "react-router-dom";
+
+import { JobSelectionContext } from "./context/JobSelectionContext";
+import { useState } from "react";
 const data = [
   {
     header: "Tree & Stump Removal",
@@ -58,8 +67,31 @@ const data = [
     image: Spring,
   },
 ];
+const router = createBrowserRouter([
+  { path: "/", element: <Home data={data} /> },
+  { path: "/request-service", element: <Form data={data} /> },
+]);
 function App() {
-  return <Form data={data} />;
-}
+  const [currentIndex, setCurrentIndex] = useState(0);
 
+  function Scroll(value) {
+    if (currentIndex + value > data.length - 1) setCurrentIndex(0);
+    else if (currentIndex + value < 0) setCurrentIndex(data.length - 1);
+    else setCurrentIndex(currentIndex + value);
+  }
+
+  const value = {
+    data: data,
+    Scroll: Scroll,
+    setIndex: setCurrentIndex,
+    currentIndex: currentIndex,
+    currentJob: data[currentIndex].header,
+  };
+
+  return (
+    <JobSelectionContext.Provider value={value}>
+      <RouterProvider router={router} />
+    </JobSelectionContext.Provider>
+  );
+}
 export default App;

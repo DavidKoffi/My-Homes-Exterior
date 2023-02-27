@@ -61,5 +61,5 @@
   position: absolute;
   width: 22.8vw;
   height: 13vw;
-  top: 12vw;
+  top: min(12vw, 20px);
 }

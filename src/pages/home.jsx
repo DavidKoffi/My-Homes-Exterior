@@ -62,26 +62,11 @@ const data = [
   },
 ];
 function Home(props) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  function Scroll(value) {
-    if (currentIndex + value > props.data.length - 1) setCurrentIndex(0);
-    else if (currentIndex + value < 0) setCurrentIndex(props.data.length - 1);
-    else setCurrentIndex(currentIndex + value);
-  }
-
-  const value = {
-    data: props.data,
-    Scroll: Scroll,
-    setIndex: setCurrentIndex,
-    currentIndex: currentIndex,
-  };
   return (
     <div className="home">
       <IntroSection />
-      <JobSelectionContext.Provider value={value}>
-        <SelectServiceSection />
-        <Carousel />
-      </JobSelectionContext.Provider>
+      <SelectServiceSection />
+      <Carousel />
     </div>
   );
 }

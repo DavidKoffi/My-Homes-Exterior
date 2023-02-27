@@ -4,6 +4,7 @@ import LeftArrow from "../../assets/Left.png";
 import bg from "../../assets/tree-removal-bg.png";
 import Tree from "../../assets/Tree.png";
 import { JobSelectionContext } from "../../context/JobSelectionContext";
+import { useNavigate } from "react-router-dom";
 
 function Carousel() {
   const payload = useContext(JobSelectionContext);
@@ -79,6 +80,7 @@ function SelectionBar(props) {
           selected={index == props.currentIndex}
           index={index}
           setIndex={props.setIndex}
+          key={index}
         />
       ))}
     </div>
@@ -99,10 +101,18 @@ function SelectionBarElement(props) {
 }
 
 function PrettyButton(props) {
+  const payload = useContext(JobSelectionContext);
+  const navigate = useNavigate();
   return (
-    <div className="get-quote-btn">
-      <p>Get Service Now</p>
-    </div>
+    <input
+      type={"button"}
+      className="get-quote-btn"
+      value={"Get Service Now"}
+      onClick={() => {
+        console.log(payload.currentJob);
+        navigate("/request-service");
+      }}
+    />
   );
 }
 
