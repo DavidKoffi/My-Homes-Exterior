@@ -1,0 +1,129 @@
+.carousel-container {
+  background-color: gray;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  height: 28vh;
+  min-height: 60vw;
+}
+
+.carousel-item {
+  height: 60vw;
+  min-width: 100%;
+  width: 100%;
+  display: flex;
+  transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: multiply;
+  background-color: gray;
+  flex-direction: column;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.carousel-item-header {
+  color: black;
+  font-size: 4.1vw;
+  font-weight: bold;
+  margin-bottom: 1vw;
+}
+.carousel-item-desc {
+  color: black;
+  font-size: 3.1vw;
+  font-weight: bold;
+  text-align: center;
+}
+
+.circle {
+  border-radius: 50%;
+  background-color: white;
+  width: 8vw;
+  height: 8vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 100000;
+  position: static;
+}
+
+.selection-item-icon {
+  width: 100%;
+  height: 100%;
+}
+
+.selection-bar {
+  display: flex;
+  position: relative;
+  bottom: 10vw;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+circle:hover {
+  border: yellow 2px solid;
+}
+
+.left {
+  position: absolute;
+  left: 10px;
+  top: 36%;
+}
+
+.right {
+  position: absolute;
+  right: 10px;
+  top: 36%;
+}
+
+.icon {
+  width: 30%;
+  height: 40%;
+}
+
+.right-arrow {
+  transform: scaleX(-1);
+}
+
+.left-arrow {
+  transform: scaleX(1);
+}
+
+.focused {
+  transition: 0.2s;
+  border: black 2px solid;
+}
+
+.get-quote-btn {
+  position: absolute;
+  width: 23vw;
+  height: 7vw;
+  border-radius: 10px;
+  background-color: #f1c232;
+  left: calc(35.5vw);
+  bottom: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 3vw;
+}
+
+.get-quote-btn:hover {
+  filter: brightness(0.8);
+}
+
+.desc-container {
+  background-color: rgba(255, 255, 255, 0.75);
+  width: 61vw;
+  height: 34vw;
+  border-radius: 5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3vw;
+  padding: 0px 5px;
+}

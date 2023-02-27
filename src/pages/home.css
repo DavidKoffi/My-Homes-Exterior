@@ -1,0 +1,6 @@
+@import url("https://fonts.googleapis.com/css?family=Inter&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display&display=swap");
+.home {
+  font-family: "Playfair Display";
+  height: fit-content;
+}
