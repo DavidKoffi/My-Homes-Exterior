@@ -27,7 +27,7 @@ function ServiceForm(props) {
     event.preventDefault();
     try {
       console.log(formData);
-      let response = await fetch("http://localhost:3001", {
+      let response = await fetch("http://50.116.46.164:3001", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
