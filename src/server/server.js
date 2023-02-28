@@ -1,5 +1,5 @@
 import express from "express";
-import http from "http";
+import https from "https";
 import path from "path";
 import fs from "fs";
 import multer from "multer";
@@ -8,6 +8,16 @@ import cors from "cors";
 const app = express();
 const port = 3001;
 import { SendEmail } from "./emailService.js";
+
+const httpsSever = https.createServer(
+  // Provide the private and public key to the server by reading each
+  // file's content with the readFileSync() method.
+  {
+    key: fs.readFileSync("key.pem"),
+    cert: fs.readFileSync("cert.pem"),
+  },
+  app
+);
 
 const corsOptions = {
   origin: "http://localhost:5173",
@@ -18,7 +28,7 @@ app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.listen(port, () => {
+httpsSever.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
 
