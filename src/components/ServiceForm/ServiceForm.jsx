@@ -80,6 +80,7 @@ function ServiceForm(props) {
           className="form-i nput"
           value={formData.service}
           onChange={handleInputChange}
+          required
         >
           <option value="">Select Service Type</option>
 
@@ -101,6 +102,7 @@ function ServiceForm(props) {
           className="form-input"
           value={formData.firstName}
           onChange={handleInputChange}
+          required
         />
       </div>
       <div className="form-group">
@@ -114,6 +116,7 @@ function ServiceForm(props) {
           className="form-input"
           value={formData.lastName}
           onChange={handleInputChange}
+          required
         />
       </div>
       <div className="form-group">
@@ -127,6 +130,7 @@ function ServiceForm(props) {
           className="form-input"
           value={formData.email}
           onChange={handleInputChange}
+          required
         />
       </div>
       <div className="form-group">
@@ -140,6 +144,7 @@ function ServiceForm(props) {
           className="form-input"
           value={formData.phoneNumber}
           onChange={handleInputChange}
+          required
         />
       </div>
       <div className="form-group">
@@ -153,6 +158,7 @@ function ServiceForm(props) {
           value={formData.address}
           onChange={handleInputChange}
           type="text"
+          required
         />
       </div>
       <div className="form-group">
@@ -172,6 +178,7 @@ function ServiceForm(props) {
           className="form-input"
           value={formData.outReachType}
           onChange={handleInputChange}
+          required
         >
           <option value="">How did you hear about us?</option>
           <option value="facebook">Facebook</option>

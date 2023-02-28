@@ -25,15 +25,17 @@
 
 .carousel-item-header {
   color: black;
-  font-size: 4.1vw;
+  font-size: min(4.1vw, 20px);
   font-weight: bold;
-  margin-bottom: 1vw;
+  margin: 0;
 }
 .carousel-item-desc {
   color: black;
-  font-size: 3.1vw;
+  font-size: 3vw;
   font-weight: bold;
   text-align: center;
+  margin: 0;
+  margin-top: 5px;
 }
 
 .circle {
@@ -48,7 +50,6 @@
   z-index: 100000;
   position: static;
   box-sizing: border-box;
-  border: 2px white solid;
 }
 
 .selection-item-icon {
@@ -94,8 +95,7 @@ circle:hover {
 }
 
 .focused {
-  transition: 0.2s;
-  border: 2px black solid;
+  transform: scale(1.1);
 }
 
 .get-quote-btn {
@@ -104,14 +104,18 @@ circle:hover {
   height: 7vw;
   border-radius: 10px;
   background-color: #f1c232;
-  left: calc(35.5vw);
+  left: calc(38.5vw);
   bottom: 30%;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 5px 10px;
   cursor: pointer;
-  font-size: 3vw;
+  font-size: 2.5vw;
+  font-family: "Inter";
+  outline: none;
+  border: none;
+  font-weight: 1000;
 }
 
 .get-quote-btn:hover {

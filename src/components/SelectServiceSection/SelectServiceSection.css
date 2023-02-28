@@ -1,6 +1,7 @@
 .service-selection-container {
   min-height: 30vw;
   margin-bottom: 10px;
+  padding: 0px 10px;
 }
 .service-grid {
   display: grid;

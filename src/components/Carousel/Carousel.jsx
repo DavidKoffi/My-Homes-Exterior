@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import "./Carousel.css";
 import LeftArrow from "../../assets/Left.png";
-import bg from "../../assets/tree-removal-bg.png";
+
 import Tree from "../../assets/Tree.png";
 import { JobSelectionContext } from "../../context/JobSelectionContext";
 import { useNavigate } from "react-router-dom";
@@ -42,7 +42,7 @@ function CarouselItem(props) {
       className="carousel-item"
       style={{
         transform: `translate(-${props.currentIndex * 100}%)`,
-        backgroundImage: `url("${bg}")`,
+        backgroundImage: `url("${props.data.backgroundImage}")`,
         backgroundBlendMode: "multiply",
       }}
     >
