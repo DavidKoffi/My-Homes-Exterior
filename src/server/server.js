@@ -66,11 +66,13 @@ app.post(
       "New Job",
       `Client name: ${data.firstName} ${data.lastName} \n 
         Client address: ${data.address} \n
+        Client zip: ${data.zipCode} \n
         Client phone number: ${data.phoneNumber} \n
         Client email: ${data.email} \n
         Expected completion date: ______ \n
         Job type: ${data.service} \n
-        additional info: ${data.additionalInfo}`
+        additional info: ${data.additionalInfo} \n
+        Out Reach type: ${data.outReachType}`
       //attachments
     );
     if (res.statusCode == 200) {
