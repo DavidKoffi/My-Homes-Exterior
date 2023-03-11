@@ -11,6 +11,7 @@ function ServiceForm(props) {
     email: "",
     phoneNumber: "",
     address: "",
+    zipCode: "",
     service: job,
     outReachType: "",
     additionalInfo: "",
@@ -27,7 +28,9 @@ function ServiceForm(props) {
     event.preventDefault();
     try {
       console.log(formData);
-      let response = await fetch("http://50.116.46.164:3001", {
+      const server = "https://50.116.46.164:3001";
+      const localHost = "http://localhost:3001";
+      let response = await fetch(server, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -156,6 +159,20 @@ function ServiceForm(props) {
           id="address"
           className="form-input"
           value={formData.address}
+          onChange={handleInputChange}
+          type="text"
+          required
+        />
+      </div>
+      <div className="form-group">
+        <label className="form-label" htmlFor="Zip Code">
+          Zip Code:
+        </label>
+        <input
+          name="zipCode"
+          id="zipCode"
+          className="form-input"
+          value={formData.zipCode}
           onChange={handleInputChange}
           type="text"
           required

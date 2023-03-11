@@ -116,6 +116,7 @@ circle:hover {
   outline: none;
   border: none;
   font-weight: 1000;
+  color: black;
 }
 
 .get-quote-btn:hover {
