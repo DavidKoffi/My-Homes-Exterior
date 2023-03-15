@@ -1,13 +1,4 @@
 import "./SelectServiceSection.css";
-import Tree from "../../assets/Tree.png";
-import Mulch from "../../assets/Mulch.png";
-import Design from "../../assets/Design.png";
-import Cleaning from "../../assets/CLeaning.png";
-import Trimming from "../../assets/Trimming.png";
-import Planting from "../../assets/Planting.png";
-import Sod from "../../assets/Sod.png";
-import Hardscape from "../../assets/Hardscape.png";
-import Spring from "../../assets/Spring.png";
 import { useContext } from "react";
 import { JobSelectionContext } from "../../context/JobSelectionContext";
 
