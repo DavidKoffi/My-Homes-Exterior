@@ -87,7 +87,7 @@ const data = [
   },
 ];
 const router = createBrowserRouter([
-  { path: "/", element: <Home data={data} /> },
+  { path: "/", element: <Home /> },
   { path: "/request-service", element: <Form data={data} /> },
 ]);
 function App() {
