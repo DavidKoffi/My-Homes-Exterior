@@ -49,10 +49,7 @@ const upload = multer({
 });
 
 app.get("/ping", (req, res) => {
-  res.status(200).json({
-    success: true,
-    message: "Hi from Dave to Deke and Sean",
-  });
+  res.status(200).json({ message: "Connected" });
 });
 
 app.post(
